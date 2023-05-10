@@ -13,7 +13,7 @@ The goals of this live code are to:
 
 ## Flasky Back End
 
-The features described in each wave of this live code were designed to be used with the Flasky back-end created during C16. The source code for this Flasky can be found [here](https://github.com/adagold/flasky/tree/solution) and the deployed version can be found [here](https://ada-flasky.herokuapp.com).
+The features described in each wave of this live code were designed to be used with the Flasky back-end created during C16. The source code for this Flasky can be found [here](https://github.com/adagold/flasky/tree/solution) and the deployed version can be found [here](https://ada-flasky.onrender.com).
 
 Your instructors may use the Flasky Back End created for your cohort and your homeroom class. Thus, the exact features they implement may be different from those described below. The React skills practice will be the same regardless of the exact features your class implements. 
 
@@ -42,7 +42,7 @@ We will also implement a function in `App` to delete a Dog.
 
 ### API EndPoints:
 
-The API is active on Heroku at [`https://ada-flasky.herokuapp.com`](https://ada-flasky.herokuapp.com).
+The API is active on Render at [`https://ada-flasky.onrender.com`](https://ada-flasky.onrender.com).
 
 | Verb  | Path  | Body of Request | What it does  |
 |---|---|---|---|

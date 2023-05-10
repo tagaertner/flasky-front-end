@@ -42,7 +42,7 @@ We will also implement a function in `App` to delete a Dog.
 
 ### API EndPoints:
 
-The API is active on Heroku at [`https://ada-flasky.onrender.com`](https://ada-flasky.onrender.com).
+The API is active on Render at [`https://ada-flasky.onrender.com`](https://ada-flasky.onrender.com).
 
 | Verb  | Path  | Body of Request | What it does  |
 |---|---|---|---|

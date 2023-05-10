@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import DogList from './components/DogList';
 
-export const URL = 'https://ada-flasky.herokuapp.com/dogs';
+export const URL = 'https://ada-flasky.onrender.com/dogs';
 
 const App = () => {
   const [dogs, setDogs] = useState([]);

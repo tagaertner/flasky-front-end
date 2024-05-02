@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Dog from "./Dog";
 import "./DogList.css";
 
-const DogList = (props) => {
+const DogList = ({ dogs, addChipCallback, deleteDogCallback }) => {
     const getDogListJSX = (dogs) => {
       return dogs.map((dog) => {
         return (
@@ -13,13 +13,13 @@ const DogList = (props) => {
             breed={dog.breed}
             age={dog.age}
             chip={dog.chip}
-            addChipCallback={props.addChipCallback}
-            deleteDogCallback={props.deleteDogCallback}
+            addChipCallback={addChipCallback}
+            deleteDogCallback={deleteDogCallback}
           />
         );
       });
     };
-    return <ul className="dogs__list">{getDogListJSX(props.dogs)}</ul>;
+    return <ul className="dogs__list">{getDogListJSX(dogs)}</ul>;
   };
 
 DogList.propTypes = {

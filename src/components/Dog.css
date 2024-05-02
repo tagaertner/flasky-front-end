@@ -1,0 +1,8 @@
+.dog {
+    /* list-style-type: none; */
+    background-color: pink;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 1em;
+    border: 2px solid #282c34;
+}

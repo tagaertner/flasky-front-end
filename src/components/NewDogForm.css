@@ -1,20 +1,20 @@
 .new-dog__form {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
-
+  
 .new-dog__fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 400px;
-  row-gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 400px;
+    row-gap: 20px;
 }
-
+  
 .new-dog__fields label {
-  font-weight: bolder;
-  font-size: 1.2em;
+    font-weight: bolder;
+    font-size: 1.2em;
 }
-
+  
 .new-dog__submit {
-  grid-column: span 2;
+    grid-column: span 2;
 }

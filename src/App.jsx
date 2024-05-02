@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
+import axios from 'axios';
 import DogList from "./components/DogList";
 
-const DOGS = [
-  { id: 1, name: "flasky", age: "1", breed: "golden doodle", chip: "5388" },
-  { id: 2, name: "sparky", age: "3", breed: "golden doodle", chip: "7269" },
-  { id: 3, name: "spot", age: "10", breed: "golden doodle", chip: "" },
-];
+export const URL = 'https://ada-flasky.onrender.com/dogs';
 
 const App = () => {
   
-  const [dogs, setDogs] = useState(DOGS);
+  const [dogs, setDogs] = useState([]);
+  const [status, setStatus] = useState('Loading...');
+
+  useEffect(() => {
+    axios
+      .get(URL)
+      .then((response) => {
+        const newDogs = response.data.map((dog) => {
+          return {
+            id: dog.id,
+            name: dog.name,
+            breed: dog.breed,
+            age: dog.age,
+            chip: dog.chip,
+          };
+        });
+        setStatus('Loaded');
+        setDogs(newDogs);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
 
   //https://www.w3schools.com/js/js_random.asp
   const getRndInteger = (min, max) => {
@@ -20,20 +40,28 @@ const App = () => {
   const addChip = (id) => {
     const newDogs = dogs.map((dog) => {
       if (dog.id === id) {
-        return {
-          ...dog,
-          chip: String(getRndInteger(1000, 9999)),
-        };
+        dog.chip = String(getRndInteger(1000, 9999));
+        axios
+          .patch(`${URL}/${id}/add_chip`)
+          .then(() => setDogs(newDogs))
+          .catch((error) => console.log(error));
       }
       return dog;
     });
-    setDogs(newDogs);
   };
 
   const deleteDog = (id) => {
-    const newDogs = dogs.filter((dog) => dog.id !== id);
-    setDogs(newDogs);
+    axios
+      .delete(`${URL}/${id}`)
+      .then(() => {
+        const newDogs = dogs.filter((dog) => dog.id !== id);
+        setDogs(newDogs);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+
   
   return (
     <div className="App">

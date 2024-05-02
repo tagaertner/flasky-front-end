@@ -1,7 +1,7 @@
-import "./Dog.css";
+import './Dog.css';
 
 const Dog = () => {
-  const name = "Doggo";
+  const name = 'Doggo';
   return (
     <div className="dog">
       <h3>{name}</h3>

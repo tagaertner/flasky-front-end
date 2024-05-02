@@ -1,20 +1,7 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./Dog.css";
 
 const Dog = (props) => {
-    const [chipNum, setChipNum] = useState(props.chip);
-
-    //https://www.w3schools.com/js/js_random.asp
-    const getRndInteger = (min, max) => {
-      return Math.floor(Math.random() * (max - min)) + min;
-    };
-  
-    const createChip = () => {
-      setChipNum(getRndInteger(1000, 9999));
-      console.log();
-    };
-    
     return (
         <li>
           <h2>
@@ -24,8 +11,8 @@ const Dog = (props) => {
             </button>
           </h2>
 
-          {chipNum ? (
-            <span>Chip #: {chipNum}</span>
+          {props.chip ? (
+            <span>Chip #: {props.chip}</span>
           ) : (
             <button onClick={() => props.addChipCallback(props.id)}>
               add chip
@@ -41,6 +28,8 @@ Dog.propTypes = {
     age: PropTypes.string.isRequired,
     breed: PropTypes.string.isRequired,
     chip: PropTypes.string.isRequired,
+    addChipCallback: PropTypes.func.isRequired,
+    deleteDogCallback: PropTypes.func.isRequired,
   };
 
 export default Dog;

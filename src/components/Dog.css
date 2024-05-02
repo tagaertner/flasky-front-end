@@ -1,5 +1,5 @@
-.dog {
-    /* list-style-type: none; */
+li {
+    list-style-type: none;
     background-color: azure;
     padding: 10px;
     margin: 20px;

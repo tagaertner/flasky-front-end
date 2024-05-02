@@ -1,8 +1,13 @@
 import "./App.css";
-import Dog from "./components/Dog";
 import DogList from "./components/DogList";
 
 const App = () => {
+  const DOGS = [
+    { id: 1, name: "flasky", age: "1", breed: "golden doodle", chip: "5388" },
+    { id: 2, name: "sparky", age: "3", breed: "golden doodle", chip: "7269" },
+    { id: 3, name: "spot", age: "10", breed: "golden doodle", chip: "" },
+  ];
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -10,10 +15,7 @@ const App = () => {
       </header>
       <main>
         <div>
-          <DogList />
-          <Dog />
-          <Dog />
-          <Dog />
+          <DogList dogs={DOGS}/>
         </div>
       </main>
     </div>

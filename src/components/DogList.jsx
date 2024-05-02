@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import Dog from "./Dog";
-import "./DogList.css";
+import PropTypes from 'prop-types';
+import Dog from './Dog';
+import './DogList.css';
 
 const DogList = ({ dogs, addChipCallback, deleteDogCallback }) => {
     const getDogListJSX = (dogs) => {

@@ -13,6 +13,8 @@ const DogList = (props) => {
             breed={dog.breed}
             age={dog.age}
             chip={dog.chip}
+            addChipCallback={props.addChipCallback}
+            deleteDogCallback={props.deleteDogCallback}
           />
         );
       });
@@ -30,6 +32,8 @@ DogList.propTypes = {
         chip: PropTypes.string.isRequired,
       })
     ).isRequired,
+    addChipCallback: PropTypes.func.isRequired,
+    deleteDogCallback: PropTypes.func.isRequired,
   };
   
 export default DogList;

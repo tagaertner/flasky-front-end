@@ -19,13 +19,17 @@ const Dog = (props) => {
         <li>
           <h2>
             {props.name}
-            <button className="delete__dog">delete</button>
+            <button onClick={() => props.deleteDogCallback(props.id)}>
+              delete
+            </button>
           </h2>
 
           {chipNum ? (
             <span>Chip #: {chipNum}</span>
           ) : (
-            <button onClick={createChip}>add chip</button>
+            <button onClick={() => props.addChipCallback(props.id)}>
+              add chip
+            </button>
           )}
     </li>
     );

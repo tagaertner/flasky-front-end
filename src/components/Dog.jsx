@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./Dog.css";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import './Dog.css';
 
 const Dog = (props) => {
     const [chipNum, setChipNum] = useState(props.chip);

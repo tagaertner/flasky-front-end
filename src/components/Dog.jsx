@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import "./Dog.css";
+import PropTypes from 'prop-types';
+import './Dog.css';
 
 const Dog = ({ id, name, chip, addChipCallback, deleteDogCallback }) => {
     return (

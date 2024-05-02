@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import { useState, useEffect } from 'react';
+import './App.css';
 import axios from 'axios';
-import DogList from "./components/DogList";
+import DogList from './components/DogList';
 import NewDogForm from './components/NewDogForm';
 
 export const URL = 'https://ada-flasky.onrender.com/dogs';

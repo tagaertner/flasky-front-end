@@ -1,7 +1,15 @@
+import Dog from './Dog';
 import './DogList.css';
 
 const DogList = () => {
-  return <h2> Dog List </h2>;
+  return  (
+    <div>
+      <h2 id='dogListHeader'> Dog List </h2>
+      <Dog />
+      <Dog />
+      <Dog />
+    </div>
+)
 };
 
 export default DogList;

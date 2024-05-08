@@ -5,3 +5,10 @@ main ul.dog__list {
     align-items: center;
     justify-content: center;
 }
+
+.dogListHeader {
+    background-color: lavender;
+    padding: 30px;
+    margin: 20px;
+
+}

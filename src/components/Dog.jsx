@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 import './Dog.css';
 
 const Dog = (props) => {
+
+    /*
+    
+    Be sure to discuss how the following line is anti-pattern. 
+    In React, we should not "cache" props in state.
+    Doing so can lead to bugs and unexpected behavior as well as cause the component to be out of sync
+    with subsequent updates to the props. 
+
+    */
+
     const [chipNum, setChipNum] = useState(props.chip);
 
     //https://www.w3schools.com/js/js_random.asp
@@ -12,11 +22,10 @@ const Dog = (props) => {
   
     const createChip = () => {
       setChipNum(getRndInteger(1000, 9999));
-      console.log();
     };
     
     return (
-        <li>
+        <li className='dog'>
           <h2>
             {props.name}
             <button className="delete__dog">delete</button>
@@ -25,7 +34,10 @@ const Dog = (props) => {
           {chipNum ? (
             <span>Chip #: {chipNum}</span>
           ) : (
-            <button onClick={createChip}>add chip</button>
+
+            // Discuss how React is going to pass event detials as the first argument to the function
+            // createChip and we are choosing to ignore it.
+            <button onClick={() => createChip()}>add chip</button>
           )}
     </li>
     );

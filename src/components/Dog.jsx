@@ -3,7 +3,7 @@ import './Dog.css';
 
 const Dog = (props) => {
     return (
-      <li>
+      <li className='dog'>
         <h2>{props.name}</h2>
         {props.chip ? (
           <span>Chip #: {props.chip}</span>

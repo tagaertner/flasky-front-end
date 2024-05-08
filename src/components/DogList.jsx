@@ -3,6 +3,11 @@ import Dog from './Dog';
 import './DogList.css';
 
 const DogList = (props) => {
+
+    // We should be sure ot focus on the when the code here runs in the lifecycle of the component.
+    // Also, we should be sure to discuss that there are alternatives approaches to generating 
+    // a list of components.
+    
     const getDogListJSX = (dogs) => {
       return dogs.map((dog) => {
         return (
@@ -17,6 +22,7 @@ const DogList = (props) => {
         );
       });
     };
+
     return <ul className="dogs__list">{getDogListJSX(props.dogs)}</ul>;
   };
 

@@ -3,7 +3,7 @@ import './Dog.css';
 
 const Dog = ({ id, name, chip, addChipCallback, deleteDogCallback }) => {
     return (
-        <li>
+        <li className='dog'>
           <h2>
             {name}
             <button onClick={() => deleteDogCallback(id)}>

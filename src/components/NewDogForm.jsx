@@ -2,18 +2,20 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NewDogForm.css';
 
+const NEW_DOG = {
+  name: '',
+  breed: '',
+  age: '',
+}
+
 const NewDogForm = ({ addDogCallback }) => {
-  const [dogData, setDogData] = useState({
-    name: '',
-    breed: '',
-    age: '',
-  });
+  const [dogData, setDogData] = useState(NEW_DOG);
 
   const submitDogData = (e) => {
     e.preventDefault();
 
     addDogCallback(dogData);
-    setDogData({ name: '', breed: '', age: '' });
+    setDogData(NEW_DOG);
   };
 
   const handleChange = (e) => {
@@ -28,6 +30,9 @@ const NewDogForm = ({ addDogCallback }) => {
           <label htmlFor="name">Name</label>
           <input
             name="name"
+
+            // useID can be used to link a label to an input. In case students ask about it, 
+            // here is a link to the React useID documentation: https://react.dev/reference/react/useId
             id="name"
             value={dogData.name}
             onChange={handleChange}

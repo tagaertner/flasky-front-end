@@ -3,9 +3,10 @@ import './Dog.css';
 
 const Dog = (props) => {
     return (
-        <li>
+        <li className='dog'>
           <h2>
             {props.name}
+          // Highlight why we need to use an arrow function here and not just pass the function directly.
             <button onClick={() => props.deleteDogCallback(props.id)}>
               delete
             </button>
@@ -28,6 +29,9 @@ Dog.propTypes = {
     age: PropTypes.string.isRequired,
     breed: PropTypes.string.isRequired,
     chip: PropTypes.string.isRequired,
+
+    // Another naming convention is the OnEvent convention, 
+    // which is to think of these as representing events. (onAddChip, onDeleteDog)
     addChipCallback: PropTypes.func.isRequired,
     deleteDogCallback: PropTypes.func.isRequired,
   };

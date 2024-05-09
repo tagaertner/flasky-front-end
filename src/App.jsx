@@ -8,14 +8,15 @@ const DOGS = [
   { id: 3, name: 'spot', age: '10', breed: 'golden doodle', chip: '' },
 ];
 
+//https://www.w3schools.com/js/js_random.asp
+const getRndInteger = (min, max) => {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
 const App = () => {
   
   const [dogs, setDogs] = useState(DOGS);
 
-  //https://www.w3schools.com/js/js_random.asp
-  const getRndInteger = (min, max) => {
-    return Math.floor(Math.random() * (max - min)) + min;
-  };
 
   const addChip = (id) => {
     const newDogs = dogs.map((dog) => {
@@ -30,6 +31,7 @@ const App = () => {
     setDogs(newDogs);
   };
 
+  // For the livecode, we could use deleteDog to demonstrate the functional style of state update.
   const deleteDog = (id) => {
     const newDogs = dogs.filter((dog) => dog.id !== id);
     setDogs(newDogs);

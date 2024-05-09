@@ -67,8 +67,8 @@ const App = () => {
     axios
       .post(URL, dogData)
       .then((response) => {
-        const newDogs = [...dogs];
-        newDogs.push({ id: response.data.id, chip: '', ...dogData });
+        const newDog = response.data;
+        const newDogs = [...dogs, newDog];
         setDogs(newDogs);
       })
       .catch((error) => console.log(error));

@@ -6,7 +6,7 @@ const Dog = (props) => {
         <li className='dog'>
           <h2>
             {props.name}
-          // Highlight why we need to use an arrow function here and not just pass the function directly.
+          {/* Highlight why we need to use an arrow function here and not just pass the function directly. */}
             <button onClick={() => props.deleteDogCallback(props.id)}>
               delete
             </button>

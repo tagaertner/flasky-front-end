@@ -26,7 +26,12 @@ const DogList = (props) => {
       });
     };
 
-    return <ul className="dogs__list">{getDogListJSX(props.dogs)}</ul>;
+    return (
+      <div className="dogList">
+        <h2> Dogs </h2>
+        <ul>{getDogListJSX(props.dogs)}</ul>
+      </div>
+    );
   };
 
 

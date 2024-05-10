@@ -19,7 +19,12 @@ const DogList = ({ dogs, addChipCallback, deleteDogCallback }) => {
         );
       });
     };
-    return <ul className="dogs__list">{getDogListJSX(dogs)}</ul>;
+    return (
+      <div className="dogList">
+        <h2> Dogs </h2>
+        <ul>{getDogListJSX(dogs)}</ul>
+      </div>
+    );
   };
 
 DogList.propTypes = {

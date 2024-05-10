@@ -4,8 +4,8 @@ import DogList from './components/DogList';
 
 const DOGS = [
   { id: 1, name: 'flasky', age: '1', breed: 'golden doodle', chip: '5388' },
-  { id: 2, name: 'sparky', age: '3', breed: 'golden doodle', chip: '7269' },
-  { id: 3, name: 'spot', age: '10', breed: 'golden doodle', chip: '' },
+  { id: 2, name: 'sparky', age: '3', breed: 'Cane Corso', chip: '7269' },
+  { id: 3, name: 'spot', age: '10', breed: 'Dobermann', chip: '' },
 ];
 
 //https://www.w3schools.com/js/js_random.asp

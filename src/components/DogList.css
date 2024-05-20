@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+.dogList>ul {
+    padding: 0;
+}
+
 .dogList>h2 {
     background-color: lavender;
     padding: 30px;

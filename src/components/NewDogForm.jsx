@@ -23,10 +23,10 @@ const NewDogForm = ({ addDogCallback }) => {
   };
 
   return (
-    <form onSubmit={submitDogData} className="new-dog__form">
+    <form onSubmit={submitDogData} className="newDogForm">
       <section>
         <h2>Add a Dog</h2>
-        <div className="new-dog__fields">
+        <div className="newDogFields">
           <label htmlFor="name">Name</label>
           <input
             name="name"
@@ -52,7 +52,7 @@ const NewDogForm = ({ addDogCallback }) => {
             onChange={handleChange}
           />
 
-          <button className="button new-dog__submit" type="submit">
+          <button className="button newDogSubmit" type="submit">
             Add Dog
           </button>
         </div>

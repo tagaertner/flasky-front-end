@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NewDogForm.css';
 
+const NEW_DOG = {
+  name: '',
+  breed: '',
+  age: '',
+}
+
 const NewDogForm = ({ addDogCallback }) => {
-  const [dogData, setDogData] = useState({
-    name: '',
-    breed: '',
-    age: '',
-  });
+  const [dogData, setDogData] = useState(NEW_DOG);
 
   const submitDogData = (e) => {
     e.preventDefault();
 
     addDogCallback(dogData);
-    setDogData({ name: '', breed: '', age: '' });
+    setDogData(NEW_DOG);
   };
 
   const handleChange = (e) => {
@@ -21,13 +23,16 @@ const NewDogForm = ({ addDogCallback }) => {
   };
 
   return (
-    <form onSubmit={submitDogData} className="new-dog__form">
+    <form onSubmit={submitDogData} className="newDogForm">
       <section>
         <h2>Add a Dog</h2>
-        <div className="new-dog__fields">
+        <div className="newDogFields">
           <label htmlFor="name">Name</label>
           <input
             name="name"
+
+            // useID can be used to link a label to an input. In case students ask about it, 
+            // here is a link to the React useID documentation: https://react.dev/reference/react/useId
             id="name"
             value={dogData.name}
             onChange={handleChange}
@@ -47,7 +52,7 @@ const NewDogForm = ({ addDogCallback }) => {
             onChange={handleChange}
           />
 
-          <button className="button new-dog__submit" type="submit">
+          <button className="button newDogSubmit" type="submit">
             Add Dog
           </button>
         </div>

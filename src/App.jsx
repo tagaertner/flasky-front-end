@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import DogList from './components/DogList';
@@ -7,6 +7,7 @@ import NewDogForm from './components/NewDogForm';
 export const URL = 'https://ada-flasky.onrender.com/dogs';
 
 const App = () => {
+  
   const [dogs, setDogs] = useState([]);
   const [status, setStatus] = useState('Loading...');
 
@@ -30,6 +31,7 @@ const App = () => {
         console.log(err);
       });
   }, []);
+
 
   //https://www.w3schools.com/js/js_random.asp
   const getRndInteger = (min, max) => {
@@ -65,12 +67,14 @@ const App = () => {
     axios
       .post(URL, dogData)
       .then((response) => {
-        const newDogs = [...dogs];
-        newDogs.push({ id: response.data.id, chip: '', ...dogData });
+        const newDog = response.data;
+        const newDogs = [...dogs, newDog];
         setDogs(newDogs);
       })
       .catch((error) => console.log(error));
   };
+
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -80,9 +84,9 @@ const App = () => {
         <div>
           <NewDogForm addDogCallback={addDog}></NewDogForm>
           <DogList
-            dogs={dogs}
-            addChipCallback={addChip}
-            deleteDogCallback={deleteDog}
+           dogs={dogs}
+           addChipCallback={addChip}
+           deleteDogCallback={deleteDog}
           />
         </div>
       </main>

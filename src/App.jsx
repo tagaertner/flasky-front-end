@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import "./App.css";
-import DogList from "./components/DogList";
+import { useState } from 'react';
+import './App.css';
+import DogList from './components/DogList';
 
 const DOGS = [
-  { id: 1, name: "flasky", age: "1", breed: "golden doodle", chip: "5388" },
-  { id: 2, name: "sparky", age: "3", breed: "golden doodle", chip: "7269" },
-  { id: 3, name: "spot", age: "10", breed: "golden doodle", chip: "" },
+  { id: 1, name: 'flasky', age: '1', breed: 'golden doodle', chip: '5388' },
+  { id: 2, name: 'sparky', age: '3', breed: 'Cane Corso', chip: '7269' },
+  { id: 3, name: 'spot', age: '10', breed: 'Dobermann', chip: '' },
 ];
 
+//https://www.w3schools.com/js/js_random.asp
+const getRndInteger = (min, max) => {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
 const App = () => {
+  
   const [dogs, setDogs] = useState(DOGS);
 
-  //https://www.w3schools.com/js/js_random.asp
-  const getRndInteger = (min, max) => {
-    return Math.floor(Math.random() * (max - min)) + min;
-  };
 
   const addChip = (id) => {
     const newDogs = dogs.map((dog) => {
@@ -29,11 +31,12 @@ const App = () => {
     setDogs(newDogs);
   };
 
+  // For the livecode, we could use deleteDog to demonstrate the functional style of state update.
   const deleteDog = (id) => {
     const newDogs = dogs.filter((dog) => dog.id !== id);
     setDogs(newDogs);
   };
-
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -42,9 +45,9 @@ const App = () => {
       <main>
         <div>
           <DogList
-            dogs={dogs}
-            addChipCallback={addChip}
-            deleteDogCallback={deleteDog}
+           dogs={dogs}
+           addChipCallback={addChip}
+           deleteDogCallback={deleteDog}
           />
         </div>
       </main>

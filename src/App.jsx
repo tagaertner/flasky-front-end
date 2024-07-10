@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import DogList from './components/DogList';
@@ -6,8 +6,8 @@ import DogList from './components/DogList';
 export const URL = 'https://ada-flasky.onrender.com/dogs';
 
 const App = () => {
+  
   const [dogs, setDogs] = useState([]);
-  const [status, setStatus] = useState('Loading...');
 
   useEffect(() => {
     axios
@@ -22,7 +22,6 @@ const App = () => {
             chip: dog.chip,
           };
         });
-        setStatus('Loaded');
         setDogs(newDogs);
       })
       .catch((err) => {
@@ -30,22 +29,20 @@ const App = () => {
       });
   }, []);
 
-  //https://www.w3schools.com/js/js_random.asp
-  const getRndInteger = (min, max) => {
-    return Math.floor(Math.random() * (max - min)) + min;
-  };
-
   const addChip = (id) => {
-    const newDogs = dogs.map((dog) => {
-      if (dog.id === id) {
-        dog.chip = String(getRndInteger(1000, 9999));
-        axios
-          .patch(`${URL}/${id}/add_chip`)
-          .then(() => setDogs(newDogs))
-          .catch((error) => console.log(error));
-      }
-      return dog;
-    });
+    axios
+      .patch(`${URL}/${id}/add_chip`)
+      .then(response => {
+        const newDog = response.data;
+        const newDogs = dogs.map(dog => {
+          if (dog.id === newDog.id) {
+            return newDog;
+          }
+          return dog;
+        });
+        setDogs(newDogs);
+      })
+      .catch((error) => console.log(error));
   };
 
   const deleteDog = (id) => {
@@ -60,6 +57,7 @@ const App = () => {
       });
   };
 
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -68,9 +66,9 @@ const App = () => {
       <main>
         <div>
           <DogList
-            dogs={dogs}
-            addChipCallback={addChip}
-            deleteDogCallback={deleteDog}
+           dogs={dogs}
+           addChipCallback={addChip}
+           deleteDogCallback={deleteDog}
           />
         </div>
       </main>

@@ -1,6 +1,5 @@
-import "./App.css";
-import Dog from "./components/Dog";
-import DogList from "./components/DogList";
+import './App.css';
+import DogList from './components/DogList';
 
 const App = () => {
   return (
@@ -11,9 +10,6 @@ const App = () => {
       <main>
         <div>
           <DogList />
-          <Dog />
-          <Dog />
-          <Dog />
         </div>
       </main>
     </div>

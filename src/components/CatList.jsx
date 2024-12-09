@@ -1,11 +1,13 @@
+import Cat from './Cat';
+
 const CatList =()=>{
   return(
     <>
       <h2>Cat List</h2>
       <ul>
-        <li>
-          <h3></h3>
-        </li>
+        <Cat/>
+        <Cat/>
+        <Cat/>
         </ul>
     </>
   );
